@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Linkedin } from "lucide-react"
 import { sendEmail } from "../actions/sendEmail"
 import { motion } from "framer-motion"
 
@@ -97,6 +97,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
+
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ scale: 0.5 }}
@@ -104,7 +105,20 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Get In Touch
+            Get in{" "}
+            <motion.span
+              className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+            >
+              Touch
+            </motion.span>
           </motion.h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Have a project in mind? Let's work together to bring your ideas to life.
@@ -120,7 +134,7 @@ export default function Contact() {
         >
           {/* Contact Info */}
           <motion.div className="space-y-8" variants={contactInfoVariants}>
-            <motion.div className="glass-card p-8" whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }}>
+            <motion.div className="glass-card-dark p-8" whileHover={{ scale: 1.02, y: -5 }} transition={{ duration: 0.3 }}>
               <motion.h3
                 className="text-2xl font-bold text-white mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -138,9 +152,11 @@ export default function Contact() {
                 viewport={{ once: true }}
               >
                 {[
-                  { icon: Mail, title: "Email", info: "john.doe@example.com", color: "from-blue-500 to-cyan-500" },
-                  { icon: Phone, title: "Phone", info: "+1 (555) 123-4567", color: "from-green-500 to-emerald-500" },
-                  { icon: MapPin, title: "Location", info: "San Francisco, CA", color: "from-purple-500 to-pink-500" },
+                  { icon: Mail, title: "Email", info: "rubensaporne@gmail.com", color: "from-orange-500 to-yellow-500" },
+                  { icon: Phone, title: "Phone", info: "(+63) 949 - 907 - 5288", color: "from-green-500 to-emerald-500" },
+                  { icon: MapPin, title: "Location", info: "Bulacan, Philippines", color: "from-purple-500 to-pink-500" },
+                  { icon: Linkedin, title: "LinkedIn", info: "linkedin.com/in/rubensaporneit/", color: "from-blue-500 to-cyan-500" },
+
                 ].map((contact, index) => (
                   <motion.div
                     key={contact.title}
@@ -167,7 +183,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div className="glass-card p-8" variants={formVariants}>
+          <motion.div className="glass-card-dark p-8" variants={formVariants}>
             <motion.form
               onSubmit={handleSubmit}
               className="space-y-6"

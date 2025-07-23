@@ -9,10 +9,48 @@ export default function About() {
 
   useEffect(() => {
     setMounted(true)
+
+    // Disable right-click context menu
+    const handleContextMenu = (e) => {
+      e.preventDefault()
+      return false
+    }
+
+    // Disable common keyboard shortcuts
+    const handleKeyDown = (e) => {
+      // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+S
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+        (e.ctrlKey && e.key === 'u') ||
+        (e.ctrlKey && e.key === 's')
+      ) {
+        e.preventDefault()
+        return false
+      }
+    }
+
+    // Disable drag and drop
+    const handleDragStart = (e) => {
+      e.preventDefault()
+      return false
+    }
+
+    // Add event listeners
+    document.addEventListener('contextmenu', handleContextMenu)
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('dragstart', handleDragStart)
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu)
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('dragstart', handleDragStart)
+    }
   }, [])
 
   const skills = [
-    { icon: Code, title: "Development", desc: "React, Next.js, Node.js, Python" },
+    { icon: Code, title: "Development", desc: "React, Next.js, Node.js, PHP, Laravel" },
     { icon: Palette, title: "Design", desc: "UI/UX, Figma, Adobe Creative Suite" },
     { icon: Zap, title: "Performance", desc: "Optimization, SEO, Best Practices" },
   ]
@@ -57,7 +95,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="py-20 px-4 bg-black/20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -66,10 +104,30 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">About Me</h2>
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            initial={{ scale: 0.5 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            About{" "}
+            <motion.span
+              className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+            >
+              Me
+            </motion.span>
+          </motion.h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            I'm a passionate developer with 5+ years of experience creating digital experiences that are both beautiful
-            and functional.
+            Get to know me more!
           </p>
         </motion.div>
 
@@ -81,9 +139,9 @@ export default function About() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {/* Photo Card */}
+          {/* Photo Card with Protection */}
           <motion.div
-            className="glass-card p-8 text-center flex flex-col justify-center min-h-[500px]"
+            className="glass-card-dark p-8 text-center flex flex-col justify-center min-h-[500px]"
             variants={cardVariants}
             whileHover="hover"
           >
@@ -93,17 +151,70 @@ export default function About() {
               transition={{ duration: 0.3 }}
             >
               <div className="relative w-full h-full">
-                <Image
-                  src="/placeholder.svg?height=256&width=256&text=Your+Photo"
-                  alt="John Doe - Profile Photo"
-                  width={256}
-                  height={256}
-                  className="w-full h-full object-cover rounded-full border-4 border-green-500/50 shadow-2xl"
-                />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500/20 to-emerald-500/20"></div>
+                {/* Protected Image Container */}
+                <div
+                  className="relative w-full h-full select-none"
+                  style={{
+                    userSelect: 'none',
+                    WebkitUserSelect: 'none',
+                    MozUserSelect: 'none',
+                    msUserSelect: 'none',
+                    WebkitTouchCallout: 'none',
+                    WebkitUserDrag: 'none',
+                    KhtmlUserSelect: 'none'
+                  }}
+                >
+                  {/* Background pattern to make extraction harder */}
+                  <div
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      background: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.02'%3E%3Cpolygon points='0,0 0,20 10,10'/%3E%3C/g%3E%3C/svg%3E")`,
+                      zIndex: 10,
+                      pointerEvents: 'none'
+                    }}
+                  />
+
+                  {/* Main Image */}
+                  <Image
+                    src="/self/GRADPIC.jpg"
+                    alt="Ruben Saporne - Profile Photo"
+                    width={256}
+                    height={256}
+                    className="w-full h-full object-cover rounded-full border-4 border-green-500/50"
+                    style={{
+                      userSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      MozUserSelect: 'none',
+                      msUserSelect: 'none',
+                      WebkitTouchCallout: 'none',
+                      WebkitUserDrag: 'none',
+                      KhtmlUserSelect: 'none',
+                      pointerEvents: 'none'
+                    }}
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    draggable={false}
+                    priority
+                    unoptimized={false}
+                  />
+
+                  {/* Invisible overlay to prevent interaction */}
+                  <div
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      backgroundColor: 'transparent',
+                      zIndex: 20,
+                      cursor: 'default'
+                    }}
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
+                    onSelectStart={(e) => e.preventDefault()}
+                  />
+                </div>
+
                 {/* Animated decorative ring */}
                 <motion.div
-                  className="absolute -inset-2 rounded-full border-2 border-green-400/30"
+                  className="absolute -inset-2 rounded-full border-2 border-green-400/30 pointer-events-none"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                 />
@@ -111,17 +222,17 @@ export default function About() {
             </motion.div>
 
             <motion.h3
-              className="text-3xl font-bold text-white mb-3"
+              className="text-3xl font-bold text-white mb-3 select-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              John Doe
+              Ruben Saporne
             </motion.h3>
 
             <motion.p
-              className="text-green-400 font-semibold text-lg mb-6"
+              className="text-green-400 font-semibold text-lg mb-6 select-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -131,19 +242,19 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              className="text-gray-300 leading-relaxed text-base max-w-sm mx-auto"
+              className="text-gray-300 leading-relaxed text-base max-w-sm mx-auto select-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Passionate about creating innovative solutions and bringing ideas to life through code.
+              I'm a passionate developer who spent the last few years honing my skills through school projects, personal builds, and lots of late-night coding. Ready to bring ideas to life.
             </motion.p>
           </motion.div>
 
           {/* Story Card */}
           <motion.div
-            className="glass-card p-8 flex flex-col justify-center min-h-[500px]"
+            className="glass-card-dark p-8 flex flex-col justify-center min-h-[500px]"
             variants={cardVariants}
             whileHover="hover"
           >
@@ -164,9 +275,9 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Started my journey in web development during college, where I discovered my passion for creating intuitive
-              user experiences. Since then, I've worked with startups and established companies to bring their visions
-              to life.
+              I started my journey in web development through school projects and classroom activities during college. At first, it was all about completing requirements, but the more I built, the more I enjoyed the process.
+              <br /> <br />
+              As the projects got more complex, I found myself diving deeper into design, layout, and user experience. Each line of code felt like progress, and over time, what began as simple tasks turned into a genuine passion.
             </motion.p>
 
             <motion.p
@@ -176,8 +287,9 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or
-              enjoying a good cup of coffee while sketching out new ideas.
+              Since then, I've worked on several projects that challenged me to grow both technically and creatively. Now, I'm excited and ready to apply these skills in a real-world setting and contribute to the tech industry.
+              <br /> <br />
+              Outside of coding, I enjoy exploring new technologies and unwinding with a good cup of coffee while sketching out new ideas.
             </motion.p>
           </motion.div>
         </motion.div>
@@ -190,7 +302,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.div className="glass-card p-8" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+          <motion.div className="glass-card-dark p-8" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
             <motion.div
               className="flex items-center mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -217,28 +329,16 @@ export default function About() {
             >
               <motion.div className="space-y-4" variants={itemVariants}>
                 <div className="border-l-4 border-green-500 pl-6">
-                  <h4 className="text-xl font-semibold text-white mb-2">Bachelor of Computer Science</h4>
-                  <p className="text-green-400 font-medium mb-1">University of Technology</p>
-                  <p className="text-gray-400 text-sm mb-2">2018 - 2022</p>
+                  <h4 className="text-xl font-semibold text-white mb-2">BS Information Technology with Specialization in Mobile and Web Application</h4>
+                  <p className="text-green-400 font-medium mb-1">National University - Baliwag</p>
+                  <p className="text-gray-400 text-sm mb-2">2021 - 2025</p>
                   <p className="text-gray-300 text-sm">
-                    Graduated Magna Cum Laude with a focus on Software Engineering and Web Development.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div className="space-y-4" variants={itemVariants}>
-                <div className="border-l-4 border-emerald-500 pl-6">
-                  <h4 className="text-xl font-semibold text-white mb-2">Full Stack Web Development</h4>
-                  <p className="text-green-400 font-medium mb-1">Coding Bootcamp</p>
-                  <p className="text-gray-400 text-sm mb-2">2022</p>
-                  <p className="text-gray-300 text-sm">
-                    Intensive 6-month program covering modern web technologies and industry best practices.
+                    Graduated in 2025 with a focus on Web and Mobile Application Development, no Latin honors, but I did master the art of debugging at 2 AM.
                   </p>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Certifications */}
             <motion.div
               className="mt-8 pt-6 border-t border-gray-700/50"
               initial={{ opacity: 0 }}
@@ -255,10 +355,9 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 {[
-                  "AWS Certified Developer",
-                  "Google Cloud Professional",
-                  "React Developer Certification",
-                  "MongoDB Certified",
+                  "Microsoft Security, Compliance, and Identity Fundamentals  (Febuary 2024)",
+                  "IIOE Training- Blockchain Essentials for Higher EducationWorkforce (July 2024)",
+                  "Certificate of Leadership: Nuebe Nobela President (A.Y. 2023-2024)",
                 ].map((cert, index) => (
                   <motion.span
                     key={cert}
@@ -284,7 +383,7 @@ export default function About() {
           </motion.div>
         </motion.div>
 
-        {/* Skills Section - Smaller Cards in Row */}
+        {/* Skills Section */}
         <motion.div
           className="grid md:grid-cols-3 gap-6"
           variants={containerVariants}
@@ -293,7 +392,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           {skills.map((skill, index) => (
-            <motion.div key={index} className="glass-card p-6 text-center" variants={cardVariants} whileHover="hover">
+            <motion.div key={index} className="glass-card-dark p-6 text-center" variants={cardVariants} whileHover="hover">
               <motion.div
                 className="flex justify-center mb-4"
                 whileHover={{ rotate: 360 }}

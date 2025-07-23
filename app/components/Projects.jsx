@@ -11,51 +11,87 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description:
-        "A comprehensive full-stack e-commerce solution featuring modern UI design, seamless checkout experience, real-time inventory management, and advanced analytics dashboard. Built with scalability in mind to handle thousands of concurrent users.",
-      shortDesc: "Modern e-commerce platform with React and Node.js",
-      tech: ["React", "Node.js", "MongoDB", "Stripe", "Redis", "AWS"],
+      title: "“SCHED - NU” Scheduling Management Web Application",
+      description: `Developed a full stack scheduling system for National University Baliwag using Next.js 15
+(React 19), Tailwind CSS, and MongoDB, featuring real-time notifications and chat via
+Pusher. Implemented secure authentication, role-based access control, and dynamic
+calendar views with FullCalendar. Built PDF export functionality, managed complex state
+with Zustand, and optimized data handling with advanced MongoDB aggregation.
+Designed with a focus on conflict prevention, usability, and performance through clean
+architecture and server-side rendering. `,
+      shortDesc: "NU - Baliwag Scheduling Management Web Application",
+      tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "MongoDB", "Pusher", "PHPMailer", "Zustand", "Full Calendar JS"],
       images: [
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
+        "/schednu/1.png",
+        "/schednu/2.png",
+        "/schednu/3.png",
+        "/schednu/4.png",
+        "/schednu/5.png",
+        "/schednu/6.png",
+        "/schednu/7.png",
+        "/schednu/8.png",
+        "/schednu/9.png",
+        "/schednu/10.png",
       ],
-      github: "https://github.com",
-      live: "https://example.com",
+      github: "https://github.com/BenruZaps/schednu",
+      live: "https://schednu.onrender.com",
     },
     {
       id: 2,
-      title: "Task Management App",
+      title: "Orange Panda POS Mobile App",
       description:
-        "A collaborative task management application with real-time updates, team collaboration features, advanced filtering, time tracking, and comprehensive reporting. Includes mobile-responsive design and offline functionality.",
-      shortDesc: "Collaborative task management with real-time updates",
-      tech: ["Next.js", "Socket.io", "PostgreSQL", "Tailwind", "PWA"],
+        `Orange Panda POS is a modern Android-based Point-of-Sale system developed using Flutter,
+tailored specifically for restaurants and food businesses. Designed through real client
+feedback, it features secure user authentication, dynamic menu and order management,
+support for various order types and payment methods, Bluetooth receipt printing, and
+detailed sales reporting. The app emphasizes customization, usability, and sleek UI, making
+it a robust POS solution for fast-paced dining environments `,
+
+      shortDesc: "Orange Panda POS is a modern Android-based Point-of-Sale system",
+      tech: ["Flutter", "Material UI", "Hive DB",],
       images: [
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
+        "/orange/1.jpg",
+        "/orange/2.jpg",
+        "/orange/3.jpg",
+        "/orange/4.jpg",
+        "/orange/5.jpg",
+        "/orange/6.jpg",
+        "/orange/7.jpg",
+        "/orange/8.jpg",
+        "/orange/9.jpg",
+        "/orange/10.jpg",
+
       ],
-      github: "https://github.com",
-      live: "https://example.com",
+      github: "https://github.com/BenruZaps/orange_panda",
+      // live: "https://example.com",
     },
     {
       id: 3,
-      title: "Weather Dashboard",
+      title: "Jamcris Trading E-commerce Mobile App",
       description:
-        "A beautiful and intuitive weather dashboard featuring detailed forecasts, interactive maps, weather alerts, historical data analysis, and customizable widgets. Supports multiple locations and provides accurate weather predictions.",
-      shortDesc: "Interactive weather dashboard with forecasts",
-      tech: ["React", "Weather API", "Chart.js", "CSS3", "PWA"],
+        `Developed a mobile platform for Jamcris Trading Surplus to facilitate buying and selling
+surplus car parts. The app featured real-time messaging, e-commerce functionality, and
+secure Stripe payment processing. Built with FlutterFlow for a responsive UI and Firebase for
+back-end services, including real-time database management and user authentication. This
+project enhanced my skills in creating scalable, functional apps with integrated messaging,
+payments, and seamless user experiences.`,
+      shortDesc: `Mobile platform for Jamcris Trading Surplus to facilitate buying and selling surplus car parts`,
+      tech: ["Flutter", "Firebase", "FlutterFlow"],
       images: [
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
-        "/placeholder.svg?height=400&width=600",
+        "/jamcris/1.jpg",
+        "/jamcris/2.jpg",
+        "/jamcris/3.jpg",
+        "/jamcris/4.jpg",
+        "/jamcris/5.jpg",
+        "/jamcris/6.jpg",
+        "/jamcris/7.jpg",
+        "/jamcris/8.jpg",
+        "/jamcris/9.jpg",
+        "/jamcris/10.jpg",
+
       ],
-      github: "https://github.com",
-      live: "https://example.com",
+      // github: "https://github.com",
+      // live: "https://example.com",
     },
   ]
 
@@ -108,7 +144,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-20 px-4 bg-black/20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -117,7 +153,29 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">My Projects</h2>
+          
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            initial={{ scale: 0.5 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            My{" "}
+            <motion.span
+              className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+            >
+              Projects
+            </motion.span>
+          </motion.h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Here are some of my recent projects that showcase my skills and creativity.
           </p>

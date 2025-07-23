@@ -14,14 +14,14 @@ export default function Skills() {
     {
       title: "Frontend Development",
       icon: Code,
-      iconColor: "from-cyan-500 to-blue-500",
+      iconColor: "from-green-500 to-emerald-500",
       skills: ["Next.js", "React", "JavaScript", "HTML", "CSS", "Tailwind CSS", "TypeScript", "Vue.js"],
     },
     {
       title: "Backend Development",
       icon: Database,
-      iconColor: "from-purple-500 to-pink-500",
-      skills: ["Node.js", "PHP", "MongoDB", "SQL", "Firebase", "Express.js", "Python", "PostgreSQL"],
+      iconColor: "from-green-500 to-emerald-500",
+      skills: ["Node.js", "PHP", "MongoDB", "SQL", "Firebase", "Laravel"],
     },
     {
       title: "Cloud & Tools",
@@ -32,8 +32,8 @@ export default function Skills() {
     {
       title: "Mobile Development",
       icon: Smartphone,
-      iconColor: "from-orange-500 to-red-500",
-      skills: ["Flutter Flow", "Flutter", "Java", "React Native", "Kotlin", "Swift"],
+      iconColor: "from-green-500 to-emerald-500",
+      skills: ["Flutter Flow", "Flutter", "Java"],
     },
   ]
 
@@ -102,7 +102,7 @@ export default function Skills() {
           >
             Technical{" "}
             <motion.span
-              className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}

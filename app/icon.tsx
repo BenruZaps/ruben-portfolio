@@ -13,7 +13,7 @@ export default function Icon() {
     <div
       style={{
         fontSize: 18,
-        background: "linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)",
+        background: "linear-gradient(135deg,rgb(8, 129, 85) 0%, rgb(10, 167, 115) 100%)",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -25,7 +25,7 @@ export default function Icon() {
         boxShadow: "0 2px 4px rgba(6, 182, 212, 0.3)",
       }}
     >
-      JD
+      RS
     </div>,
     {
       ...size,

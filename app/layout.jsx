@@ -4,33 +4,33 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "John Doe - Portfolio",
-  description: "Full Stack Developer & Creative Problem Solver",
-  keywords: ["John Doe", "Full Stack Developer", "React", "Next.js", "Portfolio", "Web Developer"],
-  authors: [{ name: "John Doe" }],
-  creator: "John Doe",
-  publisher: "John Doe",
+  title: "Ruben Saporne - Portfolio",
+  description: "Full Stack Developer",
+  keywords: ["Ruben Saporne", "Full Stack Developer", "React", "Next.js", "Portfolio", "Web Developer"],
+  authors: [{ name: "Ruben Saporne" }],
+  creator: "Ruben Saporne",
+  publisher: "Ruben Saporne",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://johndoe-portfolio.vercel.app"),
+  metadataBase: new URL("https://ruben-saporne-portfolio.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "John Doe - Full Stack Developer",
+    title: "Ruben Saporne - Full Stack Developer",
     description:
-      "Full Stack Developer & Creative Problem Solver specializing in React, Next.js, and modern web technologies.",
-    url: "https://johndoe-portfolio.vercel.app",
-    siteName: "John Doe Portfolio",
+      "Full Stack Developer specializing in React, Next.js, and modern web technologies.",
+    url: "https://ruben-saporne-portfolio.vercel.app",
+    siteName: "Ruben Saporne Portfolio",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "John Doe - Full Stack Developer Portfolio",
+        alt: "Ruben Saporne - Full Stack Developer Portfolio",
       },
     ],
     locale: "en_US",
@@ -38,10 +38,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "John Doe - Full Stack Developer",
+    title: "Ruben Saporne - Full Stack Developer",
     description:
-      "Full Stack Developer & Creative Problem Solver specializing in React, Next.js, and modern web technologies.",
-    creator: "@johndoe",
+      "Full Stack Developer specializing in React, Next.js, and modern web technologies.",
+    creator: "@ruben-saporne",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#3b82f6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="John Doe Portfolio" />
+        <meta name="apple-mobile-web-app-title" content="Ruben Saporne Portfolio" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#3b82f6" />
         <meta name="msapplication-config" content="/browserconfig.xml" />

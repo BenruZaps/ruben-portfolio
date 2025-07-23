@@ -12,32 +12,17 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "Senior Full Stack Developer",
-      company: "TechCorp Inc.",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
-      description:
-        "Led development of scalable web applications serving 100K+ users. Implemented microservices architecture and improved performance by 40%.",
-      technologies: ["React", "Node.js", "AWS", "PostgreSQL"],
-    },
-    {
-      title: "Frontend Developer",
-      company: "StartupXYZ",
-      location: "Remote",
-      period: "2020 - 2022",
-      description:
-        "Built responsive web applications and collaborated with design team to create intuitive user experiences. Reduced load times by 60%.",
-      technologies: ["Vue.js", "TypeScript", "Tailwind CSS"],
-    },
-    {
-      title: "Junior Developer",
-      company: "WebSolutions Ltd.",
-      location: "New York, NY",
-      period: "2019 - 2020",
-      description:
-        "Developed and maintained client websites, learned modern development practices, and contributed to team projects.",
-      technologies: ["JavaScript", "PHP", "MySQL"],
-    },
+      title: "Full Stack Web Developer",
+      company: "Creciendo Philippines Inc.",
+      location: "Quezon City, Metro Manila",
+      period: "2024 - 2025",
+      description: [
+        "Developed end-to-end web applications for real clients using Next.js (React 19), Node.js, and MongoDB, ensuring seamless front-end and back-end integration.",
+        "Collaborated closely with UI/UX designers, project managers, and backend teams to deliver responsive, user-centric solutions aligned with client requirements.",
+        "Built full stack features including dynamic dashboards, secure authentication, and real-time updates, contributing to the successful deployment of scalable, production-ready systems."
+      ],
+      technologies: ["Next.js", "React", "JavaScript", "MongoDB", "Tailwind CSS", "DaisyUI", "AWS", "SendGrid"],
+    }
   ]
 
   const containerVariants = {
@@ -88,8 +73,20 @@ export default function Experience() {
     },
   }
 
+  const bulletVariants = {
+    hidden: { x: -20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
   return (
-    <section id="experience" className="py-20 px-4">
+    <section id="experience" className="py-20 px-4 bg-black/20">
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -169,7 +166,7 @@ export default function Experience() {
                     </motion.h3>
 
                     <motion.div
-                      className="flex items-center space-x-2 mb-3 text-gray-400"
+                      className="flex items-center space-x-2 mb-4 text-gray-400"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -185,22 +182,44 @@ export default function Experience() {
                       </div>
                     </motion.div>
 
-                    <motion.p
-                      className="text-gray-300 mb-4 leading-relaxed"
+                    {/* Bullet Points Description */}
+                    <motion.ul
+                      className="text-gray-300 mb-4 leading-relaxed text-left space-y-2"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: 0.6 }}
                     >
-                      {exp.description}
-                    </motion.p>
+                      {exp.description.map((bullet, bulletIndex) => (
+                        <motion.li
+                          key={bulletIndex}
+                          className="flex items-start space-x-3"
+                          variants={bulletVariants}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.7 + bulletIndex * 0.2 }}
+                        >
+                          <motion.span
+                            className="text-green-400 mt-1.5 flex-shrink-0"
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: 0.8 + bulletIndex * 0.2 }}
+                          >
+                            •
+                          </motion.span>
+                          <span className="text-sm">{bullet}</span>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
 
                     <motion.div
                       className="flex flex-wrap gap-2"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.7 }}
+                      transition={{ duration: 0.6, delay: 0.9 }}
                     >
                       {exp.technologies.map((tech, techIndex) => (
                         <motion.span
@@ -209,7 +228,7 @@ export default function Experience() {
                           initial={{ scale: 0, opacity: 0 }}
                           whileInView={{ scale: 1, opacity: 1 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: 0.8 + techIndex * 0.1 }}
+                          transition={{ duration: 0.4, delay: 1.0 + techIndex * 0.1 }}
                           whileHover={{ scale: 1.1, backgroundColor: "rgba(34, 197, 94, 0.3)" }}
                         >
                           {tech}

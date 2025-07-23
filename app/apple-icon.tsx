@@ -13,7 +13,7 @@ export default function AppleIcon() {
     <div
       style={{
         fontSize: 80,
-        background: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%)",
+        background: "linear-gradient(135deg,rgb(8, 129, 85) 0%, rgb(10, 167, 115) 100%)",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -37,7 +37,7 @@ export default function AppleIcon() {
           borderRadius: "20px",
         }}
       />
-      JD
+      RS
     </div>,
     {
       ...size,

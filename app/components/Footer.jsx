@@ -4,10 +4,9 @@ import { motion } from "framer-motion"
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub", color: "hover:text-gray-300" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", color: "hover:text-blue-400" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter", color: "hover:text-cyan-400" },
-    { icon: Mail, href: "mailto:john.doe@example.com", label: "Email", color: "hover:text-green-400" },
+    { icon: Github, href: "https://github.com/BenruZaps", label: "GitHub", color: "hover:text-gray-300" },
+    { icon: Linkedin, href: "https://linkedin.com/in/rubensaporneit", label: "LinkedIn", color: "hover:text-blue-400" },
+    { icon: Mail, href: "mailto:rubensaporne@gmail.com", label: "Email", color: "hover:text-green-400" },
   ]
 
   const scrollToTop = () => {
@@ -53,7 +52,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="py-12 px-4 border-t border-gray-800/50"
+      className="py-12 px-4 border-t border-gray-800/50 bg-black/20"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -70,14 +69,15 @@ export default function Footer() {
           {/* Brand */}
           <motion.div variants={itemVariants}>
             <motion.h3
-              className="text-2xl font-bold text-white mb-4"
+              className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent   mb-4"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              John Doe
+              Ruben Saporne
             </motion.h3>
             <p className="text-gray-400 leading-relaxed">
-              Full Stack Developer passionate about creating beautiful, functional web experiences.
+              You've made it to the end of my portfolio, either you're impressed, curious, or just really good at scrolling. <br/>  <br/>
+              Got questions, ideas, or inquiries to share? Hit me up!
             </p>
           </motion.div>
 
@@ -126,7 +126,7 @@ export default function Footer() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              {["john.doe@example.com", "+1 (555) 123-4567", "San Francisco, CA"].map((info, index) => (
+              {["rubensaporne@gmail.com", "+(63) 949 - 907 - 5288", "Bulacan, Philippines"].map((info, index) => (
                 <motion.p
                   key={info}
                   variants={{
@@ -212,7 +212,7 @@ export default function Footer() {
             >
               <Heart className="w-4 h-4 text-red-500 mx-1" />
             </motion.span>{" "}
-            by John Doe © 2023
+            by Ruben Saporne © 2025
           </motion.p>
           <motion.button
             onClick={scrollToTop}
