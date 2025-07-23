@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark Glassmorphism styles with green theme */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-button {
+  background: rgba(34, 197, 94, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(34, 197, 94, 0.2);
+}
+
+.glass-button:hover {
+  background: rgba(34, 197, 94, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(34, 197, 94, 0.4);
+}
+
+.glass-button-secondary {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-button-secondary:hover {
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 40px 0 rgba(34, 197, 94, 0.3);
+}
+
+/* Subtle Bokeh effect animations - much less visible */
+.bokeh-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  filter: blur(4px);
+  animation: float 12s ease-in-out infinite;
+}
+
+.bokeh-1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, rgba(34, 197, 94, 0.05) 70%);
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.bokeh-2 {
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(16, 185, 129, 0.03) 70%);
+  top: 70%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+.bokeh-3 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.2) 0%, rgba(52, 211, 153, 0.04) 70%);
+  top: 30%;
+  right: 25%;
+  animation-delay: 6s;
+}
+
+.bokeh-4 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(110, 231, 183, 0.18) 0%, rgba(110, 231, 183, 0.03) 70%);
+  bottom: 40%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.bokeh-5 {
+  width: 170px;
+  height: 170px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, rgba(6, 182, 212, 0.04) 70%);
+  bottom: 10%;
+  right: 40%;
+  animation-delay: 4s;
+}
+
+.bokeh-6 {
+  width: 190px;
+  height: 190px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, rgba(14, 165, 233, 0.03) 70%);
+  top: 50%;
+  left: 40%;
+  animation-delay: 8s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) translateX(15px) scale(1.05);
+  }
+  50% {
+    transform: translateY(10px) translateX(-10px) scale(0.95);
+  }
+  75% {
+    transform: translateY(-15px) translateX(-20px) scale(1.02);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar with green theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bokeh-circle {
+    width: 100px !important;
+    height: 100px !important;
+    opacity: 0.1 !important;
+  }
+}
+
+/* Additional animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
