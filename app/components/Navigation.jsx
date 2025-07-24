@@ -6,6 +6,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
+  const [isMobile, setIsMobile] = useState(false) // Add mobile state
 
   const menuItems = [
     { name: "Home", id: "home", icon: Home },
@@ -17,6 +18,11 @@ export default function Navigation() {
   ]
 
   useEffect(() => {
+    // Handle screen size detection
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
 
@@ -33,9 +39,18 @@ export default function Navigation() {
       }
     }
 
+    // Set initial values
+    handleResize()
+    handleScroll()
+
+    // Add event listeners
     window.addEventListener("scroll", handleScroll)
-    handleScroll() // Call once to set initial state
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   const scrollToSection = (sectionId) => {
@@ -48,9 +63,8 @@ export default function Navigation() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-  // Determine nav background - always black on mobile, or when on home section in mobile
+  // Fixed nav background function - now uses state instead of direct window access
   const getNavBackground = () => {
-    const isMobile = window.innerWidth < 768
     if (isMobile) {
       return "backdrop-blur-md bg-black/80 shadow-lg"
     }

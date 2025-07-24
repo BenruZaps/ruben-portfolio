@@ -95,17 +95,17 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 px-4 bg-black/20">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-black/20">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6"
             initial={{ scale: 0.5 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -119,21 +119,21 @@ export default function About() {
               }}
               transition={{
                 duration: 3,
-                repeat: Number.POSITIVE_INFINITY,
+                repeat: Infinity,
                 ease: "easeInOut",
               }}
             >
               Me
             </motion.span>
           </motion.h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Get to know me more!
           </p>
         </motion.div>
 
-        {/* Photo and Story Section - Equal Height Cards */}
+        {/* Photo and Story Section - Responsive Grid */}
         <motion.div
-          className="grid lg:grid-cols-2 gap-8 mb-16"
+          className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -141,12 +141,12 @@ export default function About() {
         >
           {/* Photo Card with Protection */}
           <motion.div
-            className="glass-card-dark p-8 text-center flex flex-col justify-center min-h-[500px]"
+            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 sm:p-8 text-center flex flex-col justify-center min-h-[450px] sm:min-h-[500px]"
             variants={cardVariants}
             whileHover="hover"
           >
             <motion.div
-              className="relative w-64 h-64 mx-auto mb-8"
+              className="relative w-48 sm:w-56 lg:w-64 h-48 sm:h-56 lg:h-64 mx-auto mb-6 sm:mb-8"
               whileHover={{ rotate: 5 }}
               transition={{ duration: 0.3 }}
             >
@@ -176,7 +176,7 @@ export default function About() {
 
                   {/* Main Image */}
                   <Image
-                    src="/self/GRADPIC.jpg"
+                    src="/self/GRADPIC.jpg" // Replace with your actual photo path
                     alt="Ruben Saporne - Profile Photo"
                     width={256}
                     height={256}
@@ -195,7 +195,6 @@ export default function About() {
                     onDragStart={(e) => e.preventDefault()}
                     draggable={false}
                     priority
-                    unoptimized={false}
                   />
 
                   {/* Invisible overlay to prevent interaction */}
@@ -216,13 +215,13 @@ export default function About() {
                 <motion.div
                   className="absolute -inset-2 rounded-full border-2 border-green-400/30 pointer-events-none"
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 />
               </div>
             </motion.div>
 
             <motion.h3
-              className="text-3xl font-bold text-white mb-3 select-none"
+              className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3 select-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -232,7 +231,7 @@ export default function About() {
             </motion.h3>
 
             <motion.p
-              className="text-green-400 font-semibold text-lg mb-6 select-none"
+              className="text-green-400 font-semibold text-base sm:text-lg mb-4 sm:mb-6 select-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -242,7 +241,7 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              className="text-gray-300 leading-relaxed text-base max-w-sm mx-auto select-none"
+              className="text-gray-300 leading-relaxed text-sm sm:text-base max-w-sm mx-auto select-none px-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -254,12 +253,12 @@ export default function About() {
 
           {/* Story Card */}
           <motion.div
-            className="glass-card-dark p-8 flex flex-col justify-center min-h-[500px]"
+            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-center min-h-[450px] sm:min-h-[500px]"
             variants={cardVariants}
             whileHover="hover"
           >
             <motion.h3
-              className="text-3xl font-bold text-white mb-8"
+              className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -269,7 +268,7 @@ export default function About() {
             </motion.h3>
 
             <motion.p
-              className="text-gray-300 mb-8 leading-relaxed text-base"
+              className="text-gray-300 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -281,7 +280,7 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              className="text-gray-300 leading-relaxed text-base"
+              className="text-gray-300 leading-relaxed text-sm sm:text-base"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -296,13 +295,17 @@ export default function About() {
 
         {/* Education Section */}
         <motion.div
-          className="mb-16"
+          className="mb-12 sm:mb-16"
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.div className="glass-card-dark p-8" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+          <motion.div 
+            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 sm:p-8" 
+            whileHover={{ scale: 1.02 }} 
+            transition={{ duration: 0.2 }}
+          >
             <motion.div
               className="flex items-center mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -311,28 +314,28 @@ export default function About() {
               transition={{ duration: 0.6 }}
             >
               <motion.div
-                className="p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mr-4"
+                className="p-2 sm:p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mr-3 sm:mr-4"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
-                <GraduationCap className="w-8 h-8 text-white" />
+                <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </motion.div>
-              <h3 className="text-3xl font-bold text-white">Education</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">Education</h3>
             </motion.div>
 
             <motion.div
-              className="grid md:grid-cols-2 gap-8"
+              className="grid md:grid-cols-2 gap-6 sm:gap-8"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
               <motion.div className="space-y-4" variants={itemVariants}>
-                <div className="border-l-4 border-green-500 pl-6">
-                  <h4 className="text-xl font-semibold text-white mb-2">BS Information Technology with Specialization in Mobile and Web Application</h4>
-                  <p className="text-green-400 font-medium mb-1">National University - Baliwag</p>
-                  <p className="text-gray-400 text-sm mb-2">2021 - 2025</p>
-                  <p className="text-gray-300 text-sm">
+                <div className="border-l-4 border-green-500 pl-4 sm:pl-6">
+                  <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">BS Information Technology with Specialization in Mobile and Web Application</h4>
+                  <p className="text-green-400 font-medium mb-1 text-sm sm:text-base">National University - Baliwag</p>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-2">2021 - 2025</p>
+                  <p className="text-gray-300 text-xs sm:text-sm">
                     Graduated in 2025 with a focus on Web and Mobile Application Development, no Latin honors, but I did master the art of debugging at 2 AM.
                   </p>
                 </div>
@@ -340,28 +343,28 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              className="mt-8 pt-6 border-t border-gray-700/50"
+              className="mt-6 sm:mt-8 pt-6 border-t border-gray-700/50"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h4 className="text-lg font-semibold text-white mb-4">Certifications</h4>
+              <h4 className="text-base sm:text-lg font-semibold text-white mb-4">Certifications</h4>
               <motion.div
-                className="flex flex-wrap gap-3"
+                className="flex flex-wrap gap-2 sm:gap-3"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
               >
                 {[
-                  "Microsoft Security, Compliance, and Identity Fundamentals  (Febuary 2024)",
-                  "IIOE Training- Blockchain Essentials for Higher EducationWorkforce (July 2024)",
+                  "Microsoft Security, Compliance, and Identity Fundamentals (February 2024)",
+                  "IIOE Training- Blockchain Essentials for Higher Education Workforce (July 2024)",
                   "Certificate of Leadership: Nuebe Nobela President (A.Y. 2023-2024)",
                 ].map((cert, index) => (
                   <motion.span
                     key={cert}
-                    className="px-4 py-2 bg-green-500/20 text-green-300 rounded-full text-sm border border-green-500/30"
+                    className="px-3 sm:px-4 py-2 bg-green-500/20 text-green-300 rounded-full text-xs sm:text-sm border border-green-500/30"
                     variants={{
                       hidden: { scale: 0, opacity: 0 },
                       visible: {
@@ -385,25 +388,30 @@ export default function About() {
 
         {/* Skills Section */}
         <motion.div
-          className="grid md:grid-cols-3 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           {skills.map((skill, index) => (
-            <motion.div key={index} className="glass-card-dark p-6 text-center" variants={cardVariants} whileHover="hover">
+            <motion.div 
+              key={index} 
+              className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center" 
+              variants={cardVariants} 
+              whileHover="hover"
+            >
               <motion.div
                 className="flex justify-center mb-4"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full">
-                  <skill.icon className="w-6 h-6 text-white" />
+                <div className="p-2 sm:p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full">
+                  <skill.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               </motion.div>
-              <h4 className="text-xl font-semibold text-white mb-2">{skill.title}</h4>
-              <p className="text-gray-300 text-sm">{skill.desc}</p>
+              <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">{skill.title}</h4>
+              <p className="text-gray-300 text-xs sm:text-sm">{skill.desc}</p>
             </motion.div>
           ))}
         </motion.div>
