@@ -12,6 +12,17 @@ export default function Experience() {
 
   const experiences = [
     {
+      title: "Jr. Full Stack Developer",
+      company: "Automobile Association Philippines (AAP) ",
+      location: "Quezon City, Metro Manila",
+      period: "2025 - Present",
+      description: [
+        "Architected and led development of Mobility X, a full-scale enterprise platform (TALL Stack) consolidating HR, Asset Management, ERS, and CMS modules for 200+ employees — migrating legacy systems, implementing granular RBAC across 4 role levels, and reducing asset admin time by ~60%.",
+        "Built a Flutter mobile companion app with QR scanning and real-time RESTful API integration, cutting asset lookup time from minutes to seconds — paired with live notifications via Laravel Reverb and transactional alerts via Promotexter to streamline cross-team workflows.",
+        "Conducted vulnerability assessments with Burp Suite before each release, managed production deployments across IIS and Ubuntu Server, and collaborated on code reviews to maintain consistent delivery across all active modules."      ],
+      technologies: ["Laravel", "Livewire", "Alpine JS", "MySQL", "Tailwind CSS", "DaisyUI", "Burp Suite", "Promotexter", "Reverb"],
+    },
+    {
       title: "Full Stack Web Developer",
       company: "Creciendo Philippines Inc.",
       location: "Quezon City, Metro Manila",

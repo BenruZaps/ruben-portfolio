@@ -176,7 +176,7 @@ export default function About() {
 
                   {/* Main Image */}
                   <Image
-                    src="/self/GRADPIC.jpg" // Replace with your actual photo path
+                    src="/self/GRADPIC.JPG"
                     alt="Ruben Saporne - Profile Photo"
                     width={256}
                     height={256}
